@@ -84,23 +84,39 @@ function validateMessage() {
     return true;
 }
 
-// Function to handle the form submission
-function handleFormSubmit(event) {
-    event.preventDefault();
+// Function to validate the form fields
+function validateForm() {
+    const isValidName = validateName();
+    const isValidEmail = validateEmail();
+    const isValidMessage = validateMessage();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
-    const errorElement = document.getElementById('errorSubmit');
-    errorElement.textContent = '';
-
-    if (name.length === 0 || email.length === 0) {
-        errorElement.textContent = 'Please fill in all required fields';
-    } else {
-        alert('Form submitted successfully!');
-    }
+    return isValidName && isValidEmail && isValidMessage;
 }
 
 // Add event listener to the form submission
 const submitForm = document.getElementById('submitForm');
-submitForm.addEventListener('submit', handleFormSubmit);
+
+submitForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+        const form = document.getElementById('submitForm');
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('POST', form.action, true);
+        xhr.setRequestHeader('Accept', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                form.reset();
+                alert('Form submitted successfully!'); // You can customize this success message
+            } else {
+                alert('There was a problem submitting the form.'); // You can customize this error message
+            }
+        };
+
+        xhr.send(formData);
+    }
+});
