@@ -32,6 +32,20 @@ header p:hover {
     --border-color: #ff8c00;
 }
 
+/* Add to styles.css */
+.letter {
+    transition: all 0.3s ease;
+}
+
+.project-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+#skill ul, #descriptions > div {
+    transform-origin: center;
+}
+
 /* Theme toggle styles */
 #theme-toggle {
     display: flex;
