@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/animejs@4.0.0/lib/anime.min.js"></script>
 
 </head>
 <body>
@@ -27,6 +28,13 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="https://eugeneboondock.github.io/Boondocks">Boondocks</a></li>
         </ul>
+        <div id="theme-toggle">
+            <span>🌞</span>
+            <div class="toggle-track">
+                <div class="toggle-thumb"></div>
+            </div>
+            <span>🌙</span>
+        </div>
     </nav>
 
     <main>
@@ -41,7 +49,7 @@
                 <div class="about-content">
                     <p class="about-details">👓 <strong>Junior Web Developer</strong></p>
                     <a href="https://earth2.io"><p class="about-details">🌍 <strong>Explorer of the Metaverse [Web3] | Earth2</strong></p></a>
-                    <a href="https://www.fast.ai/"><p class="about-details">🎓 <strong>AI Aficionado | AI Researcher in Training</strong></p></a> 
+                    <a href="https://www.fast.ai/"><p class="about-details">🎓 <strong>AI Aficionado | AI Researcher in Training</strong></p></a>
                     <a href="https://huggingface.co/EugeneBoondock"><p class="about-details">📚 <strong>Eager Learner | Deep Learning Devotee</strong></p></a>
                     <a href="https://discord.gg/earth2"><p class="about-details">🤝 <strong>Community Builder | Earth2 Moderator</strong></p></a>
                     <a href="https://github.com/EugeneBoondock/"><p class="about-details">🚀 <strong>AI Explorer | Creating proprietary AI apps</strong></p></a>
@@ -163,7 +171,7 @@
                     <div>
                         <h3>HeadPhones Website</h3>
                         <p>Visually appealing and fully functional web page for a headphones website. <br>
-                            Design copied from figma and made with CSS and HTML. <br> 
+                            Design copied from figma and made with CSS and HTML. <br>
                         </p>
                         <a href="https://github.com/EugeneBoondock/headphones">Source Code</a>
                     </div>
@@ -178,7 +186,7 @@
                     <div>
                         <h3>Advanced Css Website</h3>
                         <p>Visually appealing and fully functional web page for a Get Schooled website. <br>
-                            Design copied from figma and made with CSS and HTML. <br> 
+                            Design copied from figma and made with CSS and HTML. <br>
                         </p>
                         <a href="https://github.com/EugeneBoondock/alx_html_css/tree/main/css_advanced">Source Code</a>
                     </div>
@@ -191,9 +199,9 @@
                 </div>
                 <div id="project2" class="project-card">
                     <h3>INK (Intelligent Narrative Keeper)</h3>
-                    <p>An assistant called INK (Intelligent Narrative Keeper) 
+                    <p>An assistant called INK (Intelligent Narrative Keeper)
                         that can generate various types of documents in different formats based on user input. <br>
-                        It utilizes OpenAI's text-davinci-003 model for document generation and 
+                        It utilizes OpenAI's text-davinci-003 model for document generation and
                         integrates with external libraries and APIs for additional functionalities.</p>
                     <a href="https://github.com/EugeneBoondock/INK">Source Code</a>
                     <div class="video-container">
@@ -205,7 +213,7 @@
                 </div>
                 <div class="project-card">
                     <h3>AthenaSynth</h3>
-                    <p>AthenaSynth is an AI alignment experiment that generates responses to user questions 
+                    <p>AthenaSynth is an AI alignment experiment that generates responses to user questions
                         based on the ethical perspective of Aristotle, <br>
                         the moral philosophy of Immanuel Kant, and the focus on reason from René Descartes. <br>
                         It uses OpenAI's GPT-3.5-turbo model to provide synthesized answers to questions, <br>
@@ -217,7 +225,7 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                </div>   
+                </div>
                 <div class="project-card">
                     <h3>Boondocks Guild Website</h3>
                     <p>Website representing the Boondocks Guild in Earth2.</p>
@@ -227,6 +235,23 @@
                     <h3>Personal Portfolio Website</h3>
                     <p>Website to showcase my skills and personal projects, including information about me.</p>
                     <a href="https://github.com/EugeneBoondock/alx_capstone_project">Source Code</a>
+                </div>
+                <div class="project-card">
+                    <h3>3rd Island Tours and Transfers</h3>
+                    <p>A tourism website for 3rd Island Tours and Transfers, a South African tour company specializing in safari tours
+                    and cultural experiences. Built with HTML, CSS, and JavaScript to showcase the beauty of South Africa and
+                    provide an easy-to-use booking interface for potential tourists.</p>
+                    <a href="https://3rdislandtours.com">Live Website</a>
+                    <div class="image-container">
+                        <img src="https://ext.same-assets.com/3473979034/894844076.jpeg" alt="3rd Island Tours Logo" class="project-image">
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Crypto Wallet Transaction Tracker</h3>
+                    <p>A full-stack cryptocurrency wallet tracker application that allows users to monitor their cryptocurrency transactions
+                    across multiple wallets. Features include real-time price updates, transaction history visualization, portfolio analytics,
+                    and integration with popular blockchain APIs. Built with Node.js, Express, MongoDB, and React.</p>
+                    <a href="https://github.com/EugeneBoondock/crypto-tracker">Source Code</a>
                 </div>
             </div>
         </section>
@@ -238,25 +263,25 @@
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" placeholder="Your Name" required>
                 <p id="errorName" style="color: red;"></p>
-            
+
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" placeholder="Your Email" required>
                 <p id="errorEmail" style="color: red;"></p>
-            
+
                 <label for="message">Message:</label>
                 <textarea name="message" rows="4" id="message" placeholder="Say Something" required></textarea>
                 <p id="errorMessage" style="color: red;"></p>
-            
+
                 <button type="submit">Submit</button>
                 <p id="errorSubmit" style="color: red;"></p>
             </form>
-            
+
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Eugene Ncube. All rights reserved.</p>
+        <p>&copy; 2025 Eugene Ncube. All rights reserved.</p>
         <p> Contact: <a href="mailto:philosncube@gmail.com">philosncube@gmail.com</a></p>
-    </footer>    
+    </footer>
     <script src="./js/script.js"></script>
 </body>
 </html>
