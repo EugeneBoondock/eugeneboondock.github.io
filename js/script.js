@@ -1,202 +1,228 @@
 #!/usr/bin/node
 
-// An array of text strings
+// Typing text array
 const texts = [
     "I speak Python fluently, but my snake charming skills need work.",
     "JavaScript is my cup of tea, it keeps me grounded even when my DOM's in disarray.",
     "Turning caffeine into code since 2021!"
 ];
-// Initialize variables
+
 let currentTextIndex = 0;
 let currentText = texts[currentTextIndex];
 let index = 0;
-const speed = 50; //speed of typing
-const pauseDuration = 3000; // 3 seconds
+const speed = 50;
+const pauseDuration = 3000;
 
-// Function for typing text
+// Enhanced typing animation with Anime.js
 function typeWriter() {
+    const textElement = document.getElementById("text");
     if (index < currentText.length) {
-        document.getElementById("text").innerHTML += currentText.charAt(index);
+        textElement.innerHTML += currentText.charAt(index);
         index++;
         setTimeout(typeWriter, speed);
     } else {
-        setTimeout(resetText, pauseDuration);
+        anime({
+            targets: textElement,
+            opacity: [1, 0],
+            duration: 500,
+            easing: 'easeOutQuad',
+            complete: () => {
+                setTimeout(resetText, pauseDuration);
+            }
+        });
     }
 }
 
-// Function to reset the text and continue typing
 function resetText() {
     index = 0;
     currentTextIndex = (currentTextIndex + 1) % texts.length;
     currentText = texts[currentTextIndex];
-    document.getElementById("text").innerHTML = "";
-    setTimeout(typeWriter, speed);
+    const textElement = document.getElementById("text");
+    textElement.innerHTML = "";
+    anime({
+        targets: textElement,
+        opacity: [0, 1],
+        duration: 500,
+        easing: 'easeInQuad',
+        complete: typeWriter
+    });
 }
 
-// Anime.js animations
+// Main animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Function to wrap each letter in a span for animation
+    // Letter wrapping function
     function wrapLetters(selector) {
         const elements = document.querySelectorAll(selector);
-
         elements.forEach(element => {
             const text = element.textContent;
             element.textContent = '';
-
-            // Create spans for each letter
             for (let i = 0; i < text.length; i++) {
-                const letterSpan = document.createElement('span');
-                letterSpan.classList.add('letter');
-                letterSpan.style.display = 'inline-block';
-                letterSpan.style.opacity = '0';
-                letterSpan.textContent = text[i] === ' ' ? '\u00A0' : text[i];
-                element.appendChild(letterSpan);
+                const span = document.createElement('span');
+                span.classList.add('letter');
+                span.style.display = 'inline-block';
+                span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+                element.appendChild(span);
             }
         });
-
         return elements;
     }
 
-    // Apply to main headings - the h2 elements
-    const mainHeadings = wrapLetters('section > h2');
-
-    // Create the staggered letter animation for each heading
-    mainHeadings.forEach(heading => {
-        // Create intersection observer to trigger animation when visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const letters = heading.querySelectorAll('.letter');
-
-                    anime.timeline({
-                        targets: letters,
-                        easing: 'easeOutExpo',
-                    })
-                    .add({
-                        opacity: [0, 1],
-                        translateY: ['1.2em', 0],
-                        rotateZ: [45, 0],
-                        duration: 750,
-                        delay: anime.stagger(50, {start: 300}),
-                    })
-                    .add({
-                        targets: heading,
-                        duration: 1000,
-                        color: ['#FFF', '#ff8c00', '#FFF'],
-                        easing: 'easeInOutSine',
-                        delay: 1000
-                    });
-
-                    observer.unobserve(entry.target);
-                }
+    // Header entrance with particle effect
+    anime({
+        targets: 'header',
+        translateY: [-100, 0],
+        opacity: [0, 1],
+        duration: 1500,
+        easing: 'easeOutElastic(1, .5)',
+        begin: () => {
+            anime({
+                targets: 'header h1',
+                scale: [0.5, 1],
+                rotate: ['-10deg', '0deg'],
+                duration: 1000,
+                easing: 'spring(1, 80, 10, 0)'
             });
-        }, { threshold: 0.5 });
-
-        observer.observe(heading);
+        }
     });
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    // Navigation with dynamic hover effects
+    const navItems = document.querySelectorAll('nav ul li');
+    anime({
+        targets: navItems,
+        translateX: [-50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(100, {start: 300}),
+        easing: 'easeOutBack'
+    });
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-
-                anime({
-                    targets: document.scrollingElement,
-                    scrollTop: targetPosition,
-                    duration: 800,
-                    easing: 'easeInOutQuad'
-                });
-            }
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            anime({
+                targets: item,
+                scale: 1.1,
+                color: '#ff4500',
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        });
+        item.addEventListener('mouseleave', () => {
+            anime({
+                targets: item,
+                scale: 1,
+                color: '#ff8c00',
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
         });
     });
 
-    // Header animation
-    anime({
-        targets: 'header',
-        translateY: [-50, 0],
-        opacity: [0, 1],
-        duration: 1000,
+    // Theme toggle animation
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        anime({
+            targets: '.toggle-thumb',
+            translateX: document.body.classList.contains('light-theme') ? 26 : 0,
+            duration: 400,
+            easing: 'spring(1, 80, 10, 0)'
+        });
+    });
+
+    // About section with layered animations
+    anime.timeline({
         easing: 'easeOutExpo'
-    });
-
-    // Navigation menu animation
-    anime({
-        targets: 'nav ul li',
-        translateY: [-20, 0],
+    })
+    .add({
+        targets: '.about-info h2',
+        scale: [0, 1],
+        rotate: ['-15deg', '0deg'],
         opacity: [0, 1],
-        delay: anime.stagger(100, {start: 500}),
-        easing: 'easeOutQuad'
-    });
-
-    // About section animations
-    anime({
-        targets: '.about-info',
-        translateX: [-50, 0],
+        duration: 1200
+    })
+    .add({
+        targets: '.about-info p',
+        translateY: [50, 0],
         opacity: [0, 1],
-        duration: 1200,
-        delay: 800,
-        easing: 'easeOutQuad'
-    });
-
-    anime({
+        duration: 1000
+    }, '-=800')
+    .add({
         targets: '.about-details',
-        translateY: [20, 0],
+        translateX: [-30, 0],
         opacity: [0, 1],
-        delay: anime.stagger(100, {start: 1000}),
-        easing: 'easeOutQuad'
+        delay: anime.stagger(150),
+        duration: 800
     });
 
-    // Social media icons animation
+    // Video dance animation
+    anime({
+        targets: '#dance',
+        scale: [0.8, 1],
+        rotate: ['5deg', '0deg'],
+        duration: 1500,
+        easing: 'easeOutElastic(1, .8)',
+        loop: true,
+        direction: 'alternate'
+    });
+
+    // Social icons with bounce effect
     anime({
         targets: '#socials a',
         scale: [0, 1],
-        opacity: [0, 1],
-        delay: anime.stagger(150, {start: 1500}),
+        rotate: ['-360deg', '0deg'],
+        delay: anime.stagger(100, {start: 1000}),
+        duration: 800,
         easing: 'spring(1, 80, 10, 0)'
     });
 
-    // Projects animation on scroll
+    // Skills section with dynamic effects
+    const skillLists = document.querySelectorAll('#skill ul');
+    anime({
+        targets: skillLists,
+        scale: [0, 1],
+        rotate: ['-10deg', '0deg'],
+        opacity: [0, 1],
+        delay: anime.stagger(200),
+        duration: 1000,
+        easing: 'easeOutElastic(1, .6)'
+    });
+
+    const descriptionItems = document.querySelectorAll('#descriptions > div');
+    anime({
+        targets: descriptionItems,
+        translateY: [50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(200, {start: 500}),
+        duration: 800,
+        easing: 'easeOutBack'
+    });
+
+    // Projects section with card flip effect
     const projectCards = document.querySelectorAll('.project-card');
-
-    // Add observer for animating elements when they come into view
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                anime({
-                    targets: entry.target,
-                    translateY: [50, 0],
-                    opacity: [0, 1],
-                    duration: 800,
-                    easing: 'easeOutQuad'
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
     projectCards.forEach(card => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: card,
+                        rotateY: [-90, 0],
+                        opacity: [0, 1],
+                        duration: 1000,
+                        easing: 'easeOutExpo'
+                    });
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.2 });
         observer.observe(card);
-    });
 
-    // Project card hover animations
-    projectCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             anime({
                 targets: card,
-                scale: 1.03,
-                boxShadow: '0 8px 20px rgba(255, 140, 0, 0.3)',
-                duration: 300,
-                easing: 'easeOutQuad'
+                scale: 1.05,
+                boxShadow: '0 15px 30px rgba(255, 140, 0, 0.4)',
+                borderColor: '#ff4500',
+                duration: 400,
+                easing: 'spring(1, 80, 10, 0)'
             });
         });
 
@@ -205,182 +231,149 @@ document.addEventListener('DOMContentLoaded', () => {
                 targets: card,
                 scale: 1,
                 boxShadow: '0 0 0 rgba(255, 140, 0, 0)',
+                borderColor: '#ddd',
+                duration: 400,
+                easing: 'spring(1, 80, 10, 0)'
+            });
+        });
+    });
+
+    // Contact form with input animations
+    anime({
+        targets: '#contact form > *',
+        translateX: [-50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(150),
+        duration: 800,
+        easing: 'easeOutBack'
+    });
+
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            anime({
+                targets: input,
+                scale: 1.02,
+                borderColor: '#ff4500',
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        });
+        input.addEventListener('blur', () => {
+            anime({
+                targets: input,
+                scale: 1,
+                borderColor: '#ff8c00',
                 duration: 300,
                 easing: 'easeOutQuad'
             });
         });
     });
 
-    // Skills animation
-    anime({
-        targets: '#skill ul',
-        scale: [0.9, 1],
-        opacity: [0, 1],
-        delay: anime.stagger(150),
-        easing: 'easeOutElastic(1, .5)'
+    // Section headings with morphing effect
+    const headings = wrapLetters('section > h2');
+    headings.forEach(heading => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: heading.querySelectorAll('.letter'),
+                        scale: [0, 1],
+                        translateY: ['1.5em', 0],
+                        rotate: ['-45deg', '0deg'],
+                        delay: anime.stagger(50),
+                        duration: 800,
+                        easing: 'easeOutElastic(1, .5)'
+                    });
+                    observer.unobserve(heading);
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(heading);
     });
 
-    // Contact form animation
+    // Footer animation
     anime({
-        targets: '#contact form > *',
+        targets: 'footer p',
         translateY: [20, 0],
         opacity: [0, 1],
-        delay: anime.stagger(100),
+        delay: anime.stagger(200, {start: 1000}),
+        duration: 800,
         easing: 'easeOutQuad'
     });
+});
 
-    // Section headings animation
-    anime({
-        targets: 'section h2',
-        translateY: [-30, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(300),
-        easing: 'easeOutQuad'
-    });
-
-    // Highlight the new projects (3rd Island Tours and Crypto Wallet Tracker)
-    const newProjects = document.querySelectorAll('.project-card:nth-last-child(-n+2)');
-
-    setTimeout(() => {
-        newProjects.forEach(project => {
-            anime({
-                targets: project,
-                backgroundColor: [
-                    'rgba(34, 34, 34, 1)',
-                    'rgba(255, 140, 0, 0.2)',
-                    'rgba(34, 34, 34, 1)'
-                ],
-                duration: 1500,
-                easing: 'easeInOutQuad',
-                loop: 2
-            });
-        });
-    }, 2000);
-
-    // Special animation for 3rd Island Tours logo
-    const tourLogoImg = document.querySelector('.project-card:nth-last-child(2) .project-image');
-    if (tourLogoImg) {
-        // Initial setup for logo
-        anime({
-            targets: tourLogoImg,
-            scale: [0, 1],
-            rotate: ['20deg', '0deg'],
-            opacity: [0, 1],
-            duration: 1200,
-            delay: 2500,
-            easing: 'easeOutElastic(1, .5)'
-        });
-
-        // Continuous pulse effect
-        setTimeout(() => {
-            anime({
-                targets: tourLogoImg,
-                scale: [1, 1.05, 1],
-                duration: 2000,
-                loop: true,
-                direction: 'alternate',
-                easing: 'easeInOutSine'
-            });
-        }, 3700);
-    }
-
-}); // End of DOMContentLoaded
-
-// Typing animation
+// Start typing animation
 typeWriter();
 
-// Function to validate the name field
+// Form validation remains the same
 function validateName() {
     const name = document.getElementById('name').value;
     const error = document.getElementById('errorName');
-
     if (name.length === 0) {
         error.innerHTML = 'Please enter your Name';
         return false;
     }
-
     error.innerHTML = '';
     return true;
 }
 
-// Function to validate the email field
 function validateEmail() {
     const email = document.getElementById('email').value;
     const error = document.getElementById('errorEmail');
-
     if (email.length === 0) {
         error.innerHTML = 'Please enter an email address';
         return false;
     }
-
-    // Regular expression for email validation
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     if (!email.match(emailPattern)) {
         error.innerHTML = 'Please enter a valid email address.';
         return false;
     }
-
     error.innerHTML = '';
     return true;
 }
 
-// Function to validate the message field
 function validateMessage() {
     const message = document.getElementById('message').value;
     const error = document.getElementById('errorMessage');
-
     if (message.length === 0) {
         error.innerHTML = 'Please enter your message.';
         return false;
     }
-
     error.innerHTML = '';
     return true;
 }
 
-// Function to validate the form fields
 function validateForm() {
-    const isValidName = validateName();
-    const isValidEmail = validateEmail();
-    const isValidMessage = validateMessage();
-
-    return isValidName && isValidEmail && isValidMessage;
+    return validateName() && validateEmail() && validateMessage();
 }
 
-// Add event listener to the form submission
 const submitForm = document.getElementById('submitForm');
-
 submitForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
     if (validateForm()) {
         const form = document.getElementById('submitForm');
         const formData = new FormData(form);
         const xhr = new XMLHttpRequest();
-
         xhr.open('POST', form.action, true);
         xhr.setRequestHeader('Accept', 'application/json');
-
         xhr.onreadystatechange = function () {
             if (xhr.readyState !== XMLHttpRequest.DONE) return;
             if (xhr.status === 200) {
                 form.reset();
-
-                // Show success animation
                 anime({
                     targets: '#contact form',
-                    scale: [1, 1.02, 1],
-                    duration: 800,
+                    scale: [1, 1.05, 1],
+                    rotate: ['0deg', '5deg', '0deg'],
+                    duration: 1000,
                     easing: 'easeInOutQuad',
-                    complete: function() {
-                        alert('Form submitted successfully!');
-                    }
+                    complete: () => alert('Form submitted successfully!')
                 });
             } else {
                 alert('There was a problem submitting the form.');
             }
         };
-
         xhr.send(formData);
     }
 });
