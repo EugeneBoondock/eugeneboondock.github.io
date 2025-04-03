@@ -3,200 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eugene Boondock</title>
+    <title>Eugene Boondock - Portfolio</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/mediaqueries.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Using Anime.js v4.0.0 UMD build -->
     <script src="https://unpkg.com/animejs@4.0.0/lib/anime.min.js"></script>
 </head>
-<body>
-    <div class="loading-overlay">
-        <div class="loading-text">Initializing Web Wonders...</div>
-    </div>
-    <header>
+<body class="dark-theme"> {/* Start with dark theme */}
+    <header class="initial-hidden">
         <div class="header-content">
-            <h1><span class="letter">E</span><span class="letter">u</span><span class="letter">g</span><span class="letter">e</span><span class="letter">n</span><span class="letter">e</span> <span class="letter">B</span><span class="letter">o</span><span class="letter">o</span><span class="letter">n</span><span class="letter">d</span><span class="letter">o</span><span class="letter">c</span><span class="letter">k</span></h1>
-            <p><span class="letter">J</span><span class="letter">u</span><span class="letter">n</span><span class="letter">i</span><span class="letter">o</span><span class="letter">r</span> <span class="letter">W</span><span class="letter">e</span><span class="letter">b</span> <span class="letter">D</span><span class="letter">e</span><span class="letter">v</span> <span class="letter">&</span> <span class="letter">A</span><span class="letter">I</span> <span class="letter">P</span><span class="letter">o</span><span class="letter">l</span><span class="letter">y</span><span class="letter">m</span><span class="letter">a</span><span class="letter">t</span><span class="letter">h</span></p>
+            <h1 class="header-title">Eugene Boondock</h1>
+            <p class="header-subtitle">Junior web dev & AI Polymath</p>
         </div>
-        <div class="header-particles"></div>
     </header>
-    <nav>
+
+    <nav class="initial-hidden">
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://eugeneboondock.github.io/Boondocks">Boondocks</a></li>
+            <li><a href="#about" class="nav-link">About Me</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Personal Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="https://eugeneboondock.github.io/Boondocks" class="nav-link" target="_blank" rel="noopener noreferrer">Boondocks</a></li>
         </ul>
-        <div id="theme-toggle">
-            <span class="sun">🌞</span>
+        <div id="theme-toggle" title="Toggle Theme">
+            <span class="icon-sun">🌞</span>
             <div class="toggle-track">
                 <div class="toggle-thumb"></div>
             </div>
-            <span class="moon">🌙</span>
+            <span class="icon-moon">🌙</span>
         </div>
     </nav>
+
     <main>
-        <section id="about">
-            <div class="particles"></div>
-            <div class="about-grid">
-                <div class="about-info">
-                    <h2><span class="letter">H</span><span class="letter">i</span><span class="letter">,</span> <span class="letter">E</span><span class="letter">u</span><span class="letter">g</span><span class="letter">e</span><span class="letter">n</span><span class="letter">e</span> <span class="letter">H</span><span class="letter">e</span><span class="letter">r</span><span class="letter">e</span><span class="letter">.</span></h2>
-                    <p class="intro-text">A junior web developer who crafts digital realms and explores AI frontiers.</p>
+        <!-- About section -->
+        <section id="about" class="initial-hidden">
+            <div class="section-content about-layout">
+                <div class="about-main">
+                    <div class="about-info initial-hidden-child">
+                        <h2>Hi, Eugene here.</h2>
+                        <p>A junior web developer, <br> who builds web wonders and <br> tinkers with AI marvels.</p>
+                    </div>
+                    <div class="about-content initial-hidden-child">
+                         <a href="https://earth2.io" target="_blank" rel="noopener noreferrer"><p class="about-details">👓 <strong>Junior Web Developer</strong></p></a>
+                         <a href="https://earth2.io" target="_blank" rel="noopener noreferrer"><p class="about-details">🌍 <strong>Explorer of the Metaverse [Web3] | Earth2</strong></p></a>
+                         <a href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer"><p class="about-details">🎓 <strong>AI Aficionado | AI Researcher in Training</strong></p></a>
+                         <a href="https://huggingface.co/EugeneBoondock" target="_blank" rel="noopener noreferrer"><p class="about-details">🤗 <strong>Hugging Face Explorer | Deep Learning Devotee</strong></p></a>
+                         <a href="https://discord.gg/earth2" target="_blank" rel="noopener noreferrer"><p class="about-details">🤝 <strong>Community Builder | Earth2 Moderator</strong></p></a>
+                         <a href="https://github.com/EugeneBoondock/" target="_blank" rel="noopener noreferrer"><p class="about-details">🚀 <strong>AI Explorer | Creating proprietary AI apps</strong></p></a>
+                         <p class="about-details">🎓 <strong>Politics & International Relations Graduate</strong></p>
+                    </div>
                 </div>
-                <div class="about-video">
-                    <video width="240" height="480" id="dance" loop muted playsinline>
+                <div class="about-visual initial-hidden-child">
+                    <p id="sub">Because Creativity!</p>
+                    <video width="240" height="480" id="dance" autoplay loop muted playsinline>
                         <source src="./video/dance.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <div class="about-details">
-                    <p>👓 <strong>Junior Web Developer</strong></p>
-                    <p><a href="https://earth2.io">🌍 <strong>Metaverse Explorer | Earth2</strong></a></p>
-                    <p><a href="https://www.fast.ai/">🎓 <strong>AI Enthusiast</strong></a></p>
-                    <p><a href="https://huggingface.co/EugeneBoondock">📚 <strong>Deep Learning Devotee</strong></a></p>
-                    <p><a href="https://discord.gg/earth2">🤝 <strong>Earth2 Moderator</strong></a></p>
-                    <p><a href="https://github.com/EugeneBoondock/">🚀 <strong>AI Innovator</strong></a></p>
-                    <p>🎓 <strong>Politics & Int. Relations Grad</strong></p>
-                </div>
             </div>
-            <div class="socials">
-                <p class="dox">Connect with Me</p>
+            <!--Social Links-->
+            <div class="socials_container initial-hidden-child">
+                <p class="dox">⏷doxx me⏷</p>
                 <div id="socials">
-                    <a href="https://github.com/EugeneBoondock"><img src="./icons/github-mark-white.png" width="40px" alt="GitHub"></a>
-                    <a href="https://www.linkedin.com/in/eboondock/"><img src="./icons/linkedin.png" width="40px" alt="LinkedIn"></a>
-                    <a href="https://x.com/MansaKirito"><img src="./icons/logo-white.png" width="35px" alt="X"></a>
-                    <a href="mailto:philosncube@gmail.com"><img src="./icons/gmail.png" width="40px" alt="Gmail"></a>
-                    <a href="https://www.facebook.com/philosophisticater/"><img src="./icons/facebook.png" width="40px" alt="Facebook"></a>
+                    <a href="https://github.com/EugeneBoondock" target="_blank" rel="noopener noreferrer" class="social-link"><img src="./icons/github-mark-white.png" width="40px" alt="GitHub"></a>
+                    <a href="https://www.linkedin.com/in/eboondock/" target="_blank" rel="noopener noreferrer" class="social-link"><img src="./icons/linkedin.png" width="40px" alt="LinkedIn"></a>
+                    <a href="https://x.com/MansaKirito" target="_blank" rel="noopener noreferrer" class="social-link"><img src="./icons/logo-white.png" width="35px" alt="X"></a>
+                    <a href="mailto:philosncube@gmail.com" class="social-link"><img src="./icons/gmail.png" width="40px" alt="Gmail"></a>
+                    <a href="https://www.facebook.com/philosophisticater/" target="_blank" rel="noopener noreferrer" class="social-link"><img src="./icons/facebook.png" width="40px" alt="Facebook"></a>
                 </div>
             </div>
         </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>SQL</li>
-                        <li>Bun</li>
-                    </ul>
+
+        <!-- Skills section -->
+        <section id="skills" class="initial-hidden">
+             <h2 class="section-title initial-hidden-child">Skills</h2>
+            <div id="skill-lists" class="initial-hidden-child">
+                <ul class="skill-category">
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>SQL</li>
+                </ul>
+                <ul class="skill-category">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>HTMX</li>
+                </ul>
+                 <ul class="skill-category">
+                    <li>Git/GitHub</li>
+                    <li>Bun</li>
+                    <li>Node.js</li>
+                </ul>
+                <ul class="skill-category">
+                    <li>Google Colab</li>
+                    <li>HuggingFace</li>
+                    <li>Cursor IDE</li>
+                </ul>
+            </div>
+            <div id="descriptions" class="initial-hidden-child">
+                <div id="backend" class="skill-description-card">
+                    <h4>Backend Development</h4>
+                    <ul><li>Python <span class="experience">(Intermediate)</span></li></ul>
+                    <ul><li>JavaScript <span class="experience">(Basic)</span></li></ul>
+                    <ul><li>SQL <span class="experience">(Basic)</span></li></ul>
+                    <ul><li>Bun <span class="experience">(Basic)</span></li></ul>
+                     <ul><li>Node.js <span class="experience">(Basic)</span></li></ul>
                 </div>
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <ul>
-                        <li>HTML</li>
-                        <li>HTMX</li>
-                        <li>CSS</li>
-                        <li>Git</li>
-                    </ul>
+                <div id="frontend" class="skill-description-card">
+                    <h4>FrontEnd Development</h4>
+                    <ul><li>HTML <span class="experience">(Intermediate)</span></li></ul>
+                    <ul><li>CSS <span class="experience">(Intermediate)</span></li></ul>
+                     <ul><li>HTMX <span class="experience">(Basic)</span></li></ul>
+                    <ul><li>Git/GitHub <span class="experience">(Intermediate)</span></li></ul>
                 </div>
-                <div class="skill-category">
-                    <h3>AI Research</h3>
-                    <ul>
-                        <li>Google Colab</li>
-                        <li>HuggingFace</li>
-                        <li>Cursor</li>
-                    </ul>
+                <div id="airesearch" class="skill-description-card">
+                    <h4>AI / ML</h4>
+                    <ul><li>Google Colab <span class="experience">(Basic)</span></li></ul>
+                    <ul><li>HuggingFace <span class="experience">(Basic)</span></li></ul>
+                    <ul><li>Cursor IDE <span class="experience">(Intermediate)</span></li></ul>
                 </div>
             </div>
-            <div class="typing-box">
-                <div id="text"></div>
+            <div id="pin" class="initial-hidden-child">
+                <div id="text"></div> {/* Typewriter text goes here */}
             </div>
         </section>
-        <section id="projects">
-            <h2>Projects</h2>
+
+        <!-- Projects section -->
+        <section id="projects" class="initial-hidden">
+            <h2 class="section-title initial-hidden-child">Personal Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>HeadPhones Website</h3>
-                    <p>A sleek headphones site built from Figma designs with HTML and CSS.</p>
-                    <a href="https://github.com/EugeneBoondock/headphones">Source Code</a>
-                    <video width="300" height="300" controls loop muted>
-                        <source src="./video/headphones.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                 <div class="project-card initial-hidden-child">
+                    <div>
+                        <h3>HeadPhones Website</h3>
+                        <p>Visually appealing and fully functional web page for a headphones brand. Design implemented from Figma using HTML & CSS.</p>
+                        <a href="https://github.com/EugeneBoondock/headphones" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                    </div>
+                    <div class="media-container">
+                        <video width="480" height="480" controls loop muted playsinline>
+                            <source src="./video/headphones.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Advanced CSS Website</h3>
-                    <p>A vibrant educational site crafted with CSS and HTML from Figma.</p>
-                    <a href="https://github.com/EugeneBoondock/alx_html_css/tree/main/css_advanced">Source Code</a>
-                    <video width="300" height="300" controls loop muted>
-                        <source src="./video/advanced.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="project-card initial-hidden-child">
+                    <div>
+                        <h3>Advanced CSS Website</h3>
+                        <p>Responsive 'Get Schooled' website page focusing on advanced CSS techniques. Design implemented from Figma.</p>
+                        <a href="https://github.com/EugeneBoondock/alx_html_css/tree/main/css_advanced" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                    </div>
+                    <div class="media-container">
+                        <video width="480" height="480" controls loop muted playsinline>
+                            <source src="./video/advanced.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>INK</h3>
-                    <p>AI-powered document generator using OpenAI’s text-davinci-003.</p>
-                    <a href="https://github.com/EugeneBoondock/INK">Source Code</a>
-                    <video width="300" height="300" controls loop muted>
-                        <source src="./video/INKs.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="project-card initial-hidden-child">
+                     <h3>INK (Intelligent Narrative Keeper)</h3>
+                    <p>AI assistant (INK) generating documents in various formats via OpenAI's models, integrated with external libraries.</p>
+                    <a href="https://github.com/EugeneBoondock/INK" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                    <div class="media-container">
+                        <video width="480" height="480" controls loop muted playsinline>
+                            <source src="./video/INKs.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card initial-hidden-child">
                     <h3>AthenaSynth</h3>
-                    <p>AI alignment experiment blending philosophies with GPT-3.5-turbo.</p>
-                    <a href="https://github.com/EugeneBoondock/AthenaSynth">Source Code</a>
-                    <video width="300" height="300" controls loop muted>
-                        <source src="./video/athenasynth.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <p>AI alignment experiment generating responses based on Aristotle, Kant, and Descartes using GPT-3.5-turbo.</p>
+                    <a href="https://github.com/EugeneBoondock/AthenaSynth" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                    <div class="media-container">
+                        <video width="480" height="480" controls loop muted playsinline>
+                            <source src="./video/athenasynth.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Boondocks Guild</h3>
-                    <p>Community site for the Boondocks Guild in Earth2.</p>
-                    <a href="https://github.com/EugeneBoondock/Boondocks_Guild_Site">Source Code</a>
+                <div class="project-card initial-hidden-child">
+                    <h3>Boondocks Guild Website</h3>
+                    <p>Website representing the Boondocks Guild in the Earth2 Metaverse.</p>
+                    <a href="https://github.com/EugeneBoondock/Boondocks_Guild_Site" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                     <div class="media-container">
+                       <img src="./images/boondocks_preview.png" alt="Boondocks Guild Site Preview" class="project-image">
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>My digital showcase of skills and projects.</p>
-                    <a href="https://github.com/EugeneBoondock/alx_capstone_project">Source Code</a>
+                <div class="project-card initial-hidden-child">
+                    <h3>Personal Portfolio Website (This one!)</h3>
+                    <p>Showcasing skills and projects. Built with HTML, CSS, JS, and Anime.js for dynamic animations.</p>
+                    <a href="https://github.com/EugeneBoondock/alx_capstone_project" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                     <div class="media-container">
+                        <img src="./images/portfolio_preview.png" alt="Portfolio Preview" class="project-image">
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>3rd Island Tours</h3>
-                    <p>South African tourism site with booking features.</p>
-                    <a href="https://3rdislandtours.com">Live Website</a>
-                    <img src="https://ext.same-assets.com/3473979034/894844076.jpeg" alt="3rd Island Tours Logo" class="project-image">
+                 <div class="project-card initial-hidden-child">
+                    <h3>3rd Island Tours and Transfers</h3>
+                    <p>Tourism website for a South African tour company specializing in safari and cultural experiences. Built with HTML, CSS, and JavaScript.</p>
+                    <a href="https://3rdislandtours.com" target="_blank" rel="noopener noreferrer" class="project-link">Live Website</a>
+                    <div class="media-container image-container">
+                        <img src="https://ext.same-assets.com/3473979034/894844076.jpeg" alt="3rd Island Tours Logo" class="project-image tour-logo">
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Crypto Tracker</h3>
-                    <p>Full-stack app for monitoring crypto transactions.</p>
-                    <a href="https://github.com/EugeneBoondock/crypto-tracker">Source Code</a>
+                <div class="project-card initial-hidden-child">
+                    <h3>Crypto Wallet Transaction Tracker</h3>
+                    <p>Full-stack crypto wallet tracker to monitor transactions across multiple wallets with real-time updates and analytics. Built with Node.js, Express, MongoDB, and React.</p>
+                    <a href="https://github.com/EugeneBoondock/crypto-tracker" target="_blank" rel="noopener noreferrer" class="project-link">Source Code</a>
+                     <div class="media-container">
+                        <img src="./images/crypto_tracker_preview.png" alt="Crypto Tracker Preview" class="project-image">
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="submitForm" action="https://formspree.io/f/xrgwdrlv" method="POST">
+
+        <!-- Contact section -->
+        <section id="contact" class="initial-hidden">
+            <h2 class="section-title initial-hidden-child">Contact Me</h2>
+            <form id="submitForm" action="https://formspree.io/f/xrgwdrlv" method="POST" class="initial-hidden-child">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Your Name" required>
-                    <p id="errorName" class="error"></p>
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required class="form-input">
+                    <p id="errorName" class="error-message"></p>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Your Email" required>
-                    <p id="errorEmail" class="error"></p>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required class="form-input">
+                    <p id="errorEmail" class="error-message"></p>
                 </div>
+
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" placeholder="Say Something" required></textarea>
-                    <p id="errorMessage" class="error"></p>
+                    <label for="message" class="form-label">Message:</label>
+                    <textarea name="message" rows="5" id="message" placeholder="Fire away..." required class="form-input"></textarea>
+                    <p id="errorMessage" class="error-message"></p>
                 </div>
-                <button type="submit">Send</button>
+
+                <button type="submit" class="submit-button">Send Message</button>
+                <p id="errorSubmit" class="error-message"></p>
+                <div id="form-success-message" style="display: none; color: limegreen; margin-top: 15px; text-align: center; font-weight: bold;">Message Sent Successfully!</div>
             </form>
-            <div class="success-message">Message Sent!</div>
         </section>
     </main>
-    <footer>
-        <p>© 2025 Eugene Ncube</p>
-        <p><a href="mailto:philosncube@gmail.com">philosncube@gmail.com</a></p>
+
+    <footer class="initial-hidden">
+        <p>© <span id="current-year"></span> Eugene Ncube. All rights reserved.</p>
+        <p> Contact: <a href="mailto:philosncube@gmail.com">philosncube@gmail.com</a></p>
     </footer>
-    <div class="custom-cursor"></div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>
