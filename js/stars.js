@@ -19,7 +19,7 @@ for (let i = 0; i < numStars; i++) {
 function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#cccccc'; /* Changed star color to light grey */
     stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
