@@ -5,12 +5,18 @@
         padding: 10px; /* Adding padding to the header for better spacing */
     }
 
-    /* Adjustments for the navigation */
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
     nav ul {
         flex-direction: row; /* Changing direction to row for better alignment */
         text-align: center; /* Centering the text within the navigation */
         justify-content: space-around; /* Adding space around navigation items */
         margin-left: -10px; /* Adjusting margin to ensure proper alignment */
+        display: none; /* Hide the menu by default */
     }
 
     nav ul li {
