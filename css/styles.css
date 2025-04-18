@@ -1,10 +1,10 @@
 /* header*/
 header h1:hover {
-    color: #333;
+    color: #999;
 }
 
 header p:hover {
-    color: #333;
+    color: #999;
 }
 
 /* Reset some default styles */
@@ -15,24 +15,24 @@ body, h1, h2, h3, p {
 
 /* Global styles */
 body {
-    background-color: #1a1a1a; /* Dark background */
-    color: #fff; /* Light text color */
+    background-color: #999333; /* Dark grey background */
+    color: #cccccc; /* Light grey text color */
     font-family: 'Rajdhani', sans-serif;
 }
 
 header {
-    background-color: rgba(51, 51, 51, 0.5); /* Dark gray header background */
+    background-color: rgba(51, 51, 51, 0.8); /* Dark gray header background */
     text-align: center;
     padding: 20px;
 }
 
 nav ul {
-    display: flex;
+    display: block;
     list-style-type: none;
 }
 
 nav ul a:hover {
-    color: #555;
+    color: #777;
 }
 
 nav ul li {
@@ -45,13 +45,13 @@ nav ul li {
     display: none;
     cursor: pointer;
     font-size: 24px;
-    color: #fff;
+    color: #cccccc;
 }
 
 
 nav a {
     text-decoration: none;
-    color: #333; /* Dark orange for links */
+    color: #cccccc; /* Light grey for links */
 }
 
 
@@ -64,21 +64,21 @@ main {
 /* About Me section */
 #about {
     border-radius: 20px;
-    background-color: #3d3d3d;
+    background-color: rgba(51, 51, 51, 0.8); /* Dark grey background with transparency */
     padding: 20px;
-    color: #fff;
+    color: #cccccc;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: block;
+   flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    background-image: linear-gradient(45deg, #333 25%, #ff7f00 25%, #ff7f00 50%, #333 50%, #333 75%, #ff7f00 75%, #ff7f00 100%);\n    background-size: 20px 20px;
+    //background-image: linear-gradient(45deg, #999 25%, #ff7f00 25%, #ff7f00 50%, #999 50%, #999 75%, #ff7f00 75%, #ff7f00 100%);\n    //background-size: 20px 20px;
     height: 100vh;
 }
 
 #about1 {
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
@@ -92,7 +92,7 @@ main {
 }
 
 .socials_container {
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
 }
@@ -104,16 +104,16 @@ main {
 }
 
 .dox:hover {
-    color: #333;
+    color: #999;
 }
 
 #socials {
     position: absolute;
     bottom: 20px;
-    display: flex;
+    display: block;
     justify-content: center;
     width: fit-content;
-    border: solid #333 1px;
+    border: solid #999 1px;
     padding: 5px;
     border-radius: 20px;
 }
@@ -123,7 +123,7 @@ main {
 }
 
 #about #sub {
-    color: #333;
+    color: #999;
     margin-bottom: -160px;
 }
 
@@ -154,11 +154,11 @@ main {
 .about-details {
     font-size: 1.2rem;
     margin: 5px 0;
-    color: #fff;
+    color: #cccccc;
 }
 
 .about-details:hover {
-    color: #333;
+    color: #999;
 }
 
 .about-info {
@@ -169,8 +169,8 @@ main {
 
 @keyframes flickerAnimation {
     0% { color: white; }
-    50% { color: #333; }
-    100% { color: #555; }
+    50% { color: #999; }
+    100% { color: #777; }
 }
 
 .about-info {
@@ -184,25 +184,25 @@ main {
 /* Skills section */
 #skills {
     border-radius: 20px;
-    background-color: rgba(34, 34, 34, 0.5); /* Dark gray background for section */
+    background-color: rgba(51, 51, 51, 0.8); /* Dark grey background with transparency */
     padding: 20px;
     margin-top: 20px;
     padding: 50px;
-    background-image: linear-gradient(45deg, #333 25%, #ff7f00 25%, #ff7f00 50%, #333 50%, #333 75%, #ff7f00 75%, #ff7f00 100%);
-    background-size: 20px 20px;
+    //background-image: linear-gradient(45deg, #999 25%, #ff7f00 25%, #ff7f00 50%, #999 50%, #999 75%, #ff7f00 75%, #ff7f00 100%);
+    //background-size: 20px 20px;
     height: 100vh;
 ;
 }
 
 #skill {
-    border: solid #333 1px;
+    border: solid #999 1px;
     border-radius: 10px;
-    display: flex;
+    display: block;
     justify-content: space-around;
 }
 
 #skill #first {
-    border: solid #333 1px;
+    border: solid #999 1px;
     width: 150px;
     border-radius: 20px;
     padding-top: 10px;
@@ -210,7 +210,7 @@ main {
 }
 
 #skill #sec {
-    border: solid #333 1px;
+    border: solid #999 1px;
     width: 150px;
     border-radius: 20px;
     padding-top: 10px;
@@ -218,7 +218,7 @@ main {
 }
 
 #skill #third {
-    border: solid #333 1px;
+    border: solid #999 1px;
     width: 150px;
     border-radius: 20px;
     padding-top: 10px;
@@ -226,7 +226,7 @@ main {
 }
 
 #skill #four {
-    border: solid #333 1px;
+    border: solid #999 1px;
     width: 150px;
     border-radius: 20px;
     padding-top: 10px;
@@ -234,7 +234,7 @@ main {
 }
 
 #skill #fift {
-    border: solid #333 1px;
+    border: solid #999 1px;
     width: 150px;
     border-radius: 20px;
     padding-top: 10px;
@@ -243,9 +243,9 @@ main {
 }
 
 #descriptions {
-    display: flex;
+    display: block;
     flex-direction: row;
-    border: solid #333 1px;
+    border: solid #999 1px;
     border-radius: 10px;
     margin-top: 20px;
     justify-content: space-between;
@@ -253,21 +253,21 @@ main {
 }
 
 #backend {
-    border: solid #333 1px;
+    border: solid #999 1px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
 }
 
 #frontend {
-    border: solid #333 1px;
+    border: solid #999 1px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
 }
 
 #airesearch {
-    border: solid #333 1px;
+    border: solid #999 1px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
@@ -276,9 +276,9 @@ main {
 #text {
     font-size: 50px;
     padding: 10px;
-    display: flex;
+    display: block;
     justify-content: center;
-    color: #555;
+    color: #777;
     text-shadow: -1px -1px 0 #fff,  
     1px -1px 0 #000,
     -1px 1px 0 #000,
@@ -292,28 +292,28 @@ main {
 /* Projects section */
 #projects {
     border-radius: 20px;
-    background-color: rgba(34, 34, 34, 0.5); /* Dark gray background for section */
+    background-color: rgba(51, 51, 51, 0.8); /* Dark gray background for section */
     padding: 20px;
-    background-image: linear-gradient(45deg, #333 25%, #ff7f00 25%, #ff7f00 50%, #333 50%, #333 75%, #ff7f00 75%, #ff7f00 100%);
-    background-size: 20px 20px;
+    //background-image: linear-gradient(45deg, #999 25%, #ff7f00 25%, #ff7f00 50%, #999 50%, #999 75%, #ff7f00 75%, #ff7f00 100%);
+    //background-size: 20px 20px;
 ;
     margin-top: 20px;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .project-card h3:hover {
-    color: #333;
+    color: #999;
 }
 
 #project1 {
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 
 #project2 {
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 
@@ -328,29 +328,29 @@ main {
 .project-card a {
     display: block;
     margin-top: 10px;
-    color: #333; /* Dark orange for links */
+    color: #999; /* Dark orange for links */
 }
 
 /* Contact section */
 #contact {
     border-radius: 20px;
-    background-color: rgba(34, 34, 34, 0.5); /* Dark gray background for section */
+    background-color: rgba(51, 51, 51, 0.8); /* Dark gray background for section */
     padding: 20px;
     margin-top: 20px;
-    background-image: linear-gradient(45deg, #333 25%, #ff7f00 25%, #ff7f00 50%, #333 50%, #333 75%, #ff7f00 75%, #ff7f00 100%);
-    background-size: 20px 20px;
+    //background-image: linear-gradient(45deg, #999 25%, #ff7f00 25%, #ff7f00 50%, #999 50%, #999 75%, #ff7f00 75%, #ff7f00 100%);
+    //background-size: 20px 20px;
 ;
 }
 
 /* Form styles */
 form {
-    display: flex;
+    display: block;
     flex-direction: column;
 }
 
 label {
     margin-top: 10px;
-    color: #333; /* Dark orange for labels */
+    color: #999; /* Dark orange for labels */
 }
 
 input[type="text"],
@@ -358,14 +358,14 @@ input[type="email"],
 textarea {
     padding: 10px;
     margin: 5px 0;
-    background-color: #333; /* Dark gray form input background */
-    color: #fff; /* Light text color */
-    border: 1px solid #333; /* Dark orange border */
+    background-color: #999; /* Dark gray form input background */
+    color: #cccccc; /* Light text color */
+    border: 1px solid #999; /* Dark orange border */
 }
 
 button[type="submit"] {
     margin-top: 15px;
-    background-color: #333; /* Dark orange button background */
+    background-color: #999; /* Dark orange button background */
     color: #1a1a1a; /* Dark text color */
     padding: 10px 20px;
     border: none;
@@ -373,14 +373,14 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #555; /* Slightly darker orange on hover */
+    background-color: #777; /* Slightly darker orange on hover */
 }
 
 footer {
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: center;
-    color: #333;
+    color: #999;
 }
 
 footer p{
@@ -390,4 +390,20 @@ footer p{
 footer a {
     font-style: none;
     color: white;
+}
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
