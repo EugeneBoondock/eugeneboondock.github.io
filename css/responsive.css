@@ -1,4 +1,4 @@
-/* Media Queries for devices with a width of 768 pixels or less */
+/* Responsive styles */
 @media all and (max-width: 768px) {
     /* Adjustments for the header section */
     header {
@@ -10,4 +10,8 @@
         cursor: pointer;
         font-size: 24px;
         color: #cccccc;
-   nav ul  {
+    }
+
+    nav ul {
+        display: none; /* Hide default nav on mobile */
+        flex-direction: column;

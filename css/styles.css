@@ -14,6 +14,38 @@ body, h1, h2, h3, p {
 }
 
 /* Global styles */
+
+/* Particle background effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send to back */
+    background: radial-gradient(circle at 10% 20%, rgba(255, 140, 0, 0.3) 0%, rgba(255, 140, 0, 0) 60%),
+                radial-gradient(circle at 90% 80%, rgba(255, 140, 0, 0.3) 0%, rgba(255, 140, 0, 0) 60%),
+                radial-gradient(circle at 40% 90%, rgba(255, 140, 0, 0.3) 0%, rgba(255, 140, 0, 0) 60%),
+                radial-gradient(circle at 70% 30%, rgba(255, 140, 0, 0.3) 0%, rgba(255, 140, 0, 0) 60%);
+    background-size: 200% 200%; /* Make gradients larger for movement */
+    animation: moveParticles 20s linear infinite;
+}
+
+@keyframes moveParticles {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Ensure content is above the pseudo-element */
+header,
+nav,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
 body {
     background-color: #333; /* Dark grey background */
     color: #ddd; /* Light grey text color */
@@ -22,11 +54,11 @@ body {
 
 header {
 nnav {
-    background-color: rgba(51, 51, 51, 0.6); /* Translucent background for navigation */
+    background-color: rgba(51, 51, 51, 0.5); /* Translucent background for navigation */
     padding: 10px;
     text-align: center;
 }
-    background-color: rgba(51, 51, 51, 0.8); /* Dark gray header background */
+    background-color: rgba(51, 51, 51, 0.5); /* Dark gray header background */
     text-align: center;
     padding: 20px;
 }
@@ -69,11 +101,11 @@ main {
 /* About Me section */
 #about {
     border-radius: 20px;
-    background-color: rgba(51, 51, 51, 0.8); /* Dark grey background with transparency */
+    background-color: rgba(51, 51, 51, 0.5); /* Dark grey background with transparency */
     padding: 20px 20px 100px 20px;
     color: #cccccc;
     height: 100vh;
-    display: block;
+    display: flex;
    flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -82,7 +114,7 @@ main {
 }
 
 #about1 {
-    display: block;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
@@ -131,17 +163,7 @@ main {
     margin-bottom: -160px;
 }
 
-#dance::-webkit-media-controls {
-    display:none !important;
-}
-#dance {
-    margin-right: -70px;
-}
 
-#dance1 {
-    margin-top: 100px;
-    position: relative;
-}
 
 #dance1::-webkit-media-controls {
     display:none !important;
@@ -188,7 +210,7 @@ main {
 /* Skills section */
 #skills {
     border-radius: 20px;
-    background-color: rgba(51, 51, 51, 0.4); /* Dark grey background with transparency */
+    background-color: rgba(51, 51, 51, 0.5); /* Dark grey background with transparency */
     padding: 20px;
     margin-top: 20px;
     padding: 50px;
@@ -200,7 +222,7 @@ main {
 #skill {
     border: solid #999 1px;
     border-radius: 10px;
-    display: block;
+    display: flex;
     justify-content: space-around;
 }
 
@@ -246,7 +268,7 @@ main {
 }
 
 #descriptions {
-    display: block;
+    display: flex;
     flex-direction: row;
     border: solid #999 1px;
     border-radius: 10px;
@@ -295,7 +317,7 @@ main {
 /* Projects section */
 #projects {
     border-radius: 20px;
-    background-color: rgba(51, 51, 51, 0.4); /* Dark gray background for section */
+    background-color: rgba(51, 51, 51, 0.5); /* Dark gray background for section */
     padding: 20px;
     //background-size: 20px 20px;
 ;
@@ -322,7 +344,7 @@ main {
 .project-card {
     flex-basis: 48%;
     margin-bottom: 20px;
-    border: 1px solid #ddd; background-color: rgba(0, 0, 0, 0.5); /* Translucent background for project cards */
+    border: 1px solid #ddd; background-color: rgba(0, 0, 0, 0.3); /* Translucent background for project cards */
     padding: 20px;
     border-radius: 5px;
 }
@@ -336,7 +358,7 @@ main {
 /* Contact section */
 #contact {
     border-radius: 20px;
-    background-color: rgba(51, 51, 51, 0.4); /* Dark gray background for section */
+    background-color: rgba(51, 51, 51, 0.5); /* Dark gray background for section */
     padding: 20px;
     margin-top: 20px;
     //background-size: 20px 20px;
@@ -378,7 +400,7 @@ button[type="submit"]:hover {
 }
 
 footer {
-    background-color: rgba(51, 51, 51, 0.8); /* Translucent background for footer */
+    background-color: rgba(51, 51, 51, 0.5); /* Translucent background for footer */
     padding: 20px;
     text-align: center;
 
