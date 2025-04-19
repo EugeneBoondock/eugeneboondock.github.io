@@ -1,1 +1,28 @@
-import React from 'react';\nimport Header from './components/Header';\nimport About from './components/About';\nimport Skills from './components/Skills';\nimport Projects from './components/Projects';\nimport Contact from './components/Contact';\nimport Footer from './components/Footer';\nimport ParticleBackground from './components/ParticleBackground';\n\nfunction App() {\n  return (\n    <div>\n      <ParticleBackground />\n      <div className="content"> {/* Add a container for the rest of the content */}\n        <Header />\n        <main>\n          <About />\n          <Skills />\n          <Projects />\n          <Contact />\n        </main>\n        <Footer />\n      </div>\n    </div>\n  );\n}\n\nexport default App;
+import React from 'react';
+import Header from './components/Header';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ParticleBackground from './components/ParticleBackground';
+
+function App() {
+  return (
+    <div>
+      <ParticleBackground />
+      <div className="content"> {/* Add a container for the rest of the content */}
+        <Header />
+        <main>
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+export default App;
