@@ -16,7 +16,9 @@ function ParticleBackground() {
 
   const options = {
     background: {
-      color: {\n+        value: "#1a1a1a", // Match body background\n+      },
+      color: {
+        value: "#1a1a1a", // Match body background
+      },
     },
     fpsLimit: 120,
     interactivity: {
@@ -42,9 +44,12 @@ function ParticleBackground() {
       },
     },
     particles: {
-      color: {\n+        value: "#ffffff", // White particles\n+      },
+      color: {
+        value: "#ffffff", // White particles
+      },
       links: {
-        color: "#ffffff", // White links\n+        distance: 150,
+        color: "#ffffff", // White links
+        distance: 150,
         enable: true,
         opacity: 0.5,
         width: 1,
