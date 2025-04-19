@@ -1,0 +1,409 @@
+/* Basic Reset */\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n/* Global Styles */\nbody {\n  font-family: 'Arial', sans-serif; /* Using a common font for now, will choose a better one later */\n  line-height: 1.6;
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* White text */
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #00aaff; /* A bright blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Translucent UI Styles */
+/* Header and Navigation Styling */
+header {
+  background-color: rgba(40, 44, 52, 0.8); /* Darker shade for header with transparency */
+  padding: 1rem 0;
+  text-align: center;
+  backdrop-filter: blur(5px); /* Optional: Add a blur effect behind the header */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure header is on top */
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    color: #cccccc; /* Lighter grey for subtitle */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Space between navigation items */
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00aaff; /* Highlight color on hover */
+    text-decoration: none;
+}
+
+.menu-icon {
+  display: none; /* Hidden by default on larger screens */
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    width: 100%;
+    display: none; /* Hide menu by default on small screens */
+    background-color: rgba(40, 44, 52, 0.95); /* Slightly less translucent dropdown */
+    padding: 1rem 0;
+  }
+
+  nav ul.responsive {
+    display: flex; /* Show menu when responsive class is active */
+  }
+
+  .menu-icon {
+    display: block; /* Show menu icon on small screens */
+    align-self: flex-end; /* Align icon to the right */
+  }
+}
+
+/* About Section Styling */
+#about {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 2rem auto; /* Added margin for spacing between sections */
+  background-color: rgba(40, 44, 52, 0.7); /* Translucent background */
+  border-radius: 8px;
+  backdrop-filter: blur(5px); /* Optional: Add blur */
+}
+
+#about1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.about-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-info p {
+  font-size: 1.2rem;
+  color: #cccccc;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-details {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.bot video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.socials_container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.socials_container .dox {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+#socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#socials img {
+  transition: transform 0.3s ease;
+}
+
+#socials img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive About Section */
+@media (max-width: 768px) {
+  #about1 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-content {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* Skills Section Styling */
+#skills {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 2rem auto; /* Added margin */
+  background-color: rgba(40, 44, 52, 0.7); /* Translucent background */
+  border-radius: 8px;
+  backdrop-filter: blur(5px); /* Optional: Add blur */
+}
+
+#skills h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#skill {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+#skill ul {
+    list-style: none;
+    padding: 1.5rem;
+    background-color: rgba(50, 54, 62, 0.7); /* Slightly lighter translucent cards */
+    border-radius: 8px;
+    flex: 1 1 200px; /* Allow items to grow and shrink, with a base width */
+    text-align: center;
+}
+
+#skill li {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#descriptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+}
+
+#descriptions > div {
+    background-color: rgba(50, 54, 62, 0.7); /* Slightly lighter translucent cards */
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+#descriptions h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+}
+
+#descriptions ul {
+    list-style: none;
+}
+
+#descriptions li {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#descriptions p {
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+/* Projects Section Styling */
+#projects { /* This ID is on the section */
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 2rem auto; /* Added margin */
+  background-color: rgba(40, 44, 52, 0.7); /* Translucent background */
+  border-radius: 8px;
+  backdrop-filter: blur(5px); /* Optional: Add blur */
+}
+
+#projects h2.heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: rgba(50, 54, 62, 0.7); /* Slightly lighter translucent cards */
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+}
+
+.project-card p {
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.video-container {
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+    /* Maintain aspect ratio - for 16:9, use padding-top: 56.25% */
+    /* For square videos like yours, if they are consistently 1:1, padding-top: 100% */
+    padding-top: 100%; /* Assuming square videos based on original code */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contact Section Styling */
+#contact {
+  padding: 4rem 1rem;
+  max-width: 800px;
+  margin: 2rem auto; /* Added margin */
+  text-align: center;
+  background-color: rgba(40, 44, 52, 0.7); /* Translucent background */
+  border-radius: 8px;
+  backdrop-filter: blur(5px); /* Optional: Add blur */
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: rgba(50, 54, 62, 0.7); /* Slightly lighter translucent form */
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+#contact label {
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+#contact input, #contact textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(26, 26, 26, 0.7); /* Translucent input background */
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+#contact input::placeholder, #contact textarea::placeholder {
+    color: #cccccc;
+}
+
+#contact button {
+    padding: 1rem 2rem;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #0077cc;
+}
+
+#contact .error {
+    color: red;
+    text-align: left;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Footer Styling */
+footer {
+  background-color: rgba(40, 44, 52, 0.8); /* Darker shade for footer with transparency */
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #cccccc;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px); /* Optional: Add blur */
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #cccccc;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Particle Background Styling */\n#tsparticles {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -1; /* Send it to the background */\n}\n\n.content {\n  position: relative; /* Create a stacking context */\n  z-index: 0; /* Ensure content is above the background */\n}
+
